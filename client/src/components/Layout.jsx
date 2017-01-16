@@ -2,6 +2,7 @@ import React from 'react'
 
 import Header from './Header.jsx'
 import Footer from './Footer.jsx'
+import NewGameButton from './NewGameButton.jsx'
 
 const cardImages = [
  "/images/playing_cards/10_of_clubs.png", 
@@ -66,7 +67,7 @@ class Layout extends React.Component {
       name: "",
       cards: cardImages,
       selectedCard: cardImages[0],
-      won: null
+      won: "Can you win-turn???"
       }
   }
 
@@ -79,6 +80,12 @@ class Layout extends React.Component {
 
   changeName(name) {
     this.setState({name})
+  }
+
+  playAgain() {
+    this.setState({
+      won: "Can you win again???"
+    })
   }
 
   render() {
@@ -101,6 +108,7 @@ class Layout extends React.Component {
           </div>
           ))}
         </div>
+        <NewGameButton>{this.playAgain}</NewGameButton>
         <div className="footer">
         <p>{this.state.won}</p>
         </div>
